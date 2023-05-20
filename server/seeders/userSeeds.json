@@ -1,0 +1,312 @@
+[
+  {
+    "username": "Brian Kernighan",
+    "email": "bkernighan@techfriends.dev",
+    "password": "password01",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "Max Kanat-Alexander",
+    "email": "mkanatalexander@techfriends.dev",
+    "password": "password02",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "Amiko",
+    "email": "amiko@techfriends.dev",
+    "password": "password03",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "Kent Beck",
+    "email": "kbeck@techfriends.dev",
+    "password": "password04",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "Edward V. Berard",
+    "email": "evberard@techfriends.dev",
+    "password": "password05",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "Alan Kay",
+    "email": "akay@techfriends.dev",
+    "password": "password06",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "C.A.R. Hoare",
+    "email": "choare@techfriends.dev",
+    "password": "password07",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "David Thomas",
+    "email": "dthomas@techfriends.dev",
+    "password": "password08",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "Donald Knuth",
+    "email": "dknuth@techfriends.dev",
+    "password": "password09",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  },
+  {
+    "username": "Lernantino",
+    "email": "lernantino@techfriends.dev",
+    "password": "password10",
+    "savedBooks": [
+      {
+        "authors": ["Author1"],
+        "description": "Book 1 description",
+        "bookId": "bookId1",
+        "image": "book1.jpg",
+        "link": "book1link",
+        "title": "Book 1"
+      },
+      {
+        "authors": ["Author2"],
+        "description": "Book 2 description",
+        "bookId": "bookId2",
+        "image": "book2.jpg",
+        "link": "book2link",
+        "title": "Book 2"
+      },
+      {
+        "authors": ["Author3"],
+        "description": "Book 3 description",
+        "bookId": "bookId3",
+        "image": "book3.jpg",
+        "link": "book3link",
+        "title": "Book 3"
+      }
+    ]
+  }
+]
