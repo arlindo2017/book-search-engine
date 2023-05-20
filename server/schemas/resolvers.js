@@ -1,3 +1,4 @@
+const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
@@ -25,7 +26,7 @@ const resolvers = {
   },
 
   Mutation: {
-    createUser: async (_, { username, email, password }) => {
+    createUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
 
       if (!user) {
@@ -35,25 +36,27 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    login: async (_, { usernameOrEmail, password }) => {
-      const user = await User.findOne({
-        $or: [{ username: usernameOrEmail }, { email: usernameOrEmail }],
-      });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
       if (!user) {
-        throw new Error("Can't find this user");
+        throw new AuthenticationError("No user with this email found!");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new Error("Wrong password!");
+        throw new AuthenticationError("Incorrect password!");
       }
 
       const token = signToken(user);
       return { token, user };
     },
-    saveBook: async (_, { book }, { user }) => {
+    saveBook: async (parent, { book }, { user }) => {
+      // if (!user) {
+      //   throw new Error("Authentication required to save a book");
+      // }
+
       try {
         const updatedUser = await User.findOneAndUpdate(
           { _id: user._id },
@@ -66,18 +69,29 @@ const resolvers = {
         throw new Error("Error while saving the book");
       }
     },
-    deleteBook: async (_, { bookId }, { user }) => {
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
-        { $pull: { savedBooks: { bookId: bookId } } },
-        { new: true }
-      );
+    deleteBook: async (parent, { bookId }, { user }) => {
+      // Check if user is authenticated
+      // if (!user) {
+      //   throw new Error("Authentication required to delete a book");
+      // }
 
-      if (!updatedUser) {
-        throw new Error("Couldn't find user with this id");
+      try {
+        // Find the user and remove the book with the specified bookId
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $pull: { savedBooks: { bookId: bookId } } },
+          { new: true }
+        );
+
+        if (!updatedUser) {
+          throw new Error("Couldn't find user with this id");
+        }
+
+        return updatedUser;
+      } catch (err) {
+        console.error(err);
+        throw new Error("Error while deleting the book");
       }
-
-      return updatedUser;
     },
   },
 };

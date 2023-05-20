@@ -32,7 +32,7 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): AuthPayload
-    login(usernameOrEmail: String!, password: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
     saveBook(book: BookInput!): User
     deleteBook(bookId: String!): User
   }
