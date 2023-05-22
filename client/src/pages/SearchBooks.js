@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { Container, Col, Form, Button, Card, Row } from "react-bootstrap";
 
-import { searchGoogleBooks } from "../utils/API";
-import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
-
 import Auth from "../utils/auth";
 import { SAVE_BOOK } from "../utils/mutations";
+import { getSavedBookIds, saveBookIds } from "../utils/localStorage";
+import { searchGoogleBooks } from "../utils/API";
 
 const SearchBooks = () => {
   const [searchedBooks, setSearchedBooks] = useState([]);
@@ -49,7 +48,6 @@ const SearchBooks = () => {
   };
 
   const [saveBook] = useMutation(SAVE_BOOK);
-
   const handleSaveBook = async (bookId) => {
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
@@ -60,11 +58,11 @@ const SearchBooks = () => {
     }
 
     try {
+      console.log(bookToSave);
       const { data } = await saveBook({
-        variables: { book: bookToSave },
+        variables: { input: bookToSave }, // Use 'input' instead of 'book'
       });
-
-      if (!data) {
+      if (!data.saveBook) {
         throw new Error("Something went wrong!");
       }
 
