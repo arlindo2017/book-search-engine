@@ -1,6 +1,6 @@
-const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
-const { signToken } = require("../utils/auth");
+const { AuthenticationError } = require('apollo-server-express');
+const { User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -9,7 +9,7 @@ const resolvers = {
         const user = await User.findOne({ _id: context.user._id });
         return user;
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
   },
 
@@ -21,25 +21,24 @@ const resolvers = {
         return { token, user };
       } catch (err) {
         console.error(err);
-        throw new Error("Error while adding the user");
+        throw new Error('Error while adding the user');
       }
     },
     login: async (parent, { email, password }) => {
-      try {
-        const user = await User.findOne({ email });
-        if (!user) {
-          throw new AuthenticationError("No user with this email found");
-        }
-        const correctPassword = await user.isCorrectPassword(password);
-        if (!correctPassword) {
-          throw new AuthenticationError("Incorrect password");
-        }
-        const token = signToken(user);
-        return { token, user };
-      } catch (err) {
-        console.error(err);
-        throw new Error("Error while logging in");
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('No user with this email found!');
       }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect password!');
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
     saveBook: async (parent, { book }, context) => {
       if (context.user) {
@@ -52,10 +51,10 @@ const resolvers = {
           return updatedUser;
         } catch (err) {
           console.error(err);
-          throw new Error("Error while saving the book");
+          throw new Error('Error while saving the book');
         }
       }
-      throw new AuthenticationError("Login required");
+      throw new AuthenticationError('Login required');
     },
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
@@ -68,10 +67,10 @@ const resolvers = {
           return updatedUser;
         } catch (err) {
           console.error(err);
-          throw new Error("Error while deleting the book");
+          throw new Error('Error while deleting the book');
         }
       }
-      throw new AuthenticationError("Login required");
+      throw new AuthenticationError('Login required');
     },
   },
 };
