@@ -23,6 +23,7 @@ const LoginForm = (props) => {
 
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
+    console.log(form);
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
@@ -30,8 +31,9 @@ const LoginForm = (props) => {
 
     try {
       const { data } = await login({
-        variable: { ...userFormData },
+        variables: { ...userFormData },
       });
+      console.log(data);
 
       Auth.login(data.login.token);
     } catch (e) {
