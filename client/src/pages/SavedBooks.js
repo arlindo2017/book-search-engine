@@ -18,12 +18,6 @@ const SavedBooks = () => {
     }
   }, [data]);
 
-  useEffect(() => {
-    if (data) {
-      setUserData(data.me);
-    }
-  }, [data]);
-
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
