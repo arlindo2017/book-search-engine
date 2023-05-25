@@ -4,16 +4,17 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    // This is to test Front end, not needed for this challenge
     users: async () => {
       return User.find();
     },
+
     me: async (parent, args, context) => {
-      console.log(context.user);
       if (context.user) {
-        const user = await User.findOne({ _id: context.user._id });
-        return user;
+        console.log('me query ran');
+        return User.findOne({ _id: context.user._id });
       }
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError('You need to be logged in!');
     },
   },
 
@@ -44,23 +45,38 @@ const resolvers = {
       const token = signToken(user);
       return { token };
     },
-    saveBook: async (parent, { book }, context) => {
-      // console.log(context.user);
+    saveBook: async (
+      parent,
+      { authors, description, title, bookId, image, link },
+      context
+    ) => {
       if (context.user) {
         try {
+          const book = {
+            authors,
+            description,
+            title,
+            bookId,
+            image,
+            link,
+          };
+
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $addToSet: { savedBooks: { ...book } } },
+            { $addToSet: { savedBooks: book } },
             { new: true }
           );
+
           return updatedUser;
         } catch (err) {
           console.error(err);
           throw new Error('Error while saving the book');
         }
       }
+
       throw new AuthenticationError('Login required');
     },
+
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
         try {

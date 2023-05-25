@@ -21,6 +21,7 @@ const typeDefs = gql`
   type Auth {
     token: ID!
     user: User
+    books(username: String): [Book]
   }
 
   type Query {
