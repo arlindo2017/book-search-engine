@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken');
-
+//Define token expiration
 const secret = 'mysecretssshhhhhhh';
 const expiration = '2h';
-
+//Authmiddleware being passed into context
 module.exports = {
   authMiddleware: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
-    // console.log('token ran', token);
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
     }
@@ -24,6 +23,7 @@ module.exports = {
 
     return req;
   },
+  // Token used for certain functions in frontend
   signToken: function ({ email, username, _id }) {
     const payload = { email, username, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });

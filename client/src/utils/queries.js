@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-
+// Query to render all books for the person logged in
 export const GET_ME = gql`
   query me {
     me {
@@ -17,6 +17,7 @@ export const GET_ME = gql`
     }
   }
 `;
+// Query to render all users, used to test frontend
 export const QUERY_USERS = gql`
   query allUsers {
     users {

@@ -1,3 +1,4 @@
+// This was added for front end testing only
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_USERS } from '../utils/queries';

@@ -1,4 +1,5 @@
 import React from 'react';
+// Import Appollo components
 import {
   ApolloClient,
   InMemoryCache,
@@ -12,8 +13,6 @@ import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 
-// Test connection
-// import AllUsers from './pages/AllUsers';
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
@@ -25,7 +24,7 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
-
+// Sets graphql connection
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -33,7 +32,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
+// Renders APP
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -50,12 +49,6 @@ function App() {
           </Routes>
         </>
       </Router>
-
-      {/* <div className="flex-column justify-flex-start min-100-vh">
-        <div className="container">
-          <AllUsers />
-        </div>
-      </div> */}
     </ApolloProvider>
   );
 }

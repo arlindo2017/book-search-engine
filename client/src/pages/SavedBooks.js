@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
+//Import Apollo
 import { useQuery, useMutation } from '@apollo/client';
+// Import queries and mutations
 import { GET_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations';
 
@@ -21,16 +23,16 @@ const SavedBooks = () => {
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+    // Checks for existing token
     if (!token) {
       return false;
     }
-
+    // Deletes book by its ID
     try {
       await removeBook({
         variables: { bookId },
       });
-
+      // reconstructs user data, removes the book being deleted, creates a new object
       setUserData((prevUserData) => ({
         ...prevUserData,
         savedBooks: prevUserData.savedBooks.filter(
@@ -43,7 +45,7 @@ const SavedBooks = () => {
       console.error(err);
     }
   };
-
+  //Display Loading until data is loaded
   if (loading) {
     return <h2>Loading...</h2>;
   }
@@ -52,7 +54,7 @@ const SavedBooks = () => {
     console.error(error);
     return <h2>Error occurred</h2>;
   }
-
+  // Renders page
   return (
     <>
       <div className="text-light bg-dark p-5" fluid="true">

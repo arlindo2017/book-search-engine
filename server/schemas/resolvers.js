@@ -8,7 +8,7 @@ const resolvers = {
     users: async () => {
       return User.find();
     },
-
+    //Finds user from the context
     me: async (parent, args, context) => {
       if (context.user) {
         console.log('me query ran');
@@ -19,6 +19,7 @@ const resolvers = {
   },
 
   Mutation: {
+    // Add user functionality
     addUser: async (parent, { username, email, password }) => {
       try {
         const user = await User.create({ username, email, password });
@@ -29,6 +30,7 @@ const resolvers = {
         throw new Error('Error while adding the user');
       }
     },
+    // Login functionality, and checks password
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -45,6 +47,7 @@ const resolvers = {
       const token = signToken(user);
       return { token };
     },
+    // Save Book functionality
     saveBook: async (
       parent,
       { authors, description, title, bookId, image, link },
@@ -76,7 +79,7 @@ const resolvers = {
 
       throw new AuthenticationError('Login required');
     },
-
+    // Remove book functionality
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
         try {

@@ -23,12 +23,12 @@ const typeDefs = gql`
     user: User
     books(username: String): [Book]
   }
-
+  #Query used to render saved books
   type Query {
     me: User
     users: [User]
   }
-
+  #all mutations
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
